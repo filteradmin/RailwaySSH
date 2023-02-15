@@ -1,5 +1,5 @@
 ## railway-ssh
-
+* Tutoria Video If You Don't Understand : [Click Here](https://youtu.be/5u1J-EqSLwk)
 ## Note:
 * Read this Before Deploy : [Term Of Service Railway](https://railway.app/legal/fair-use)
 
