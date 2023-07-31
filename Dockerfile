@@ -6,7 +6,7 @@ ARG ngrokid=2TKpUVMArM3l4uRQndjgYEQAO5l_2TVpECASVAehd2yJurYwb
 ARG Password=safone@1
 ENV Password=${Password}
 ENV ngrokid=${ngrokid}
-RUN apt install ssh wget unzip -y > /dev/null 2>&1
+RUN apt install ssh wget unzip python3-pip -y > /dev/null 2>&1
 RUN wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip > /dev/null 2>&1
 RUN unzip ngrok.zip
 RUN echo "./ngrok config add-authtoken ${ngrokid} &&" >>/1.sh
