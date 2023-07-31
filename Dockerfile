@@ -20,5 +20,6 @@ RUN service ssh start
 RUN chmod 755 /1.sh
 RUN pip3 install flask
 RUN pip3 install flask_restful
+COPY . .
 EXPOSE 80 8888 8080 443 5130 5131 5132 5133 5134 5135 3306
 CMD ["bash","start.sh"]
