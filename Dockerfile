@@ -5,7 +5,7 @@ RUN apt update -y > /dev/null 2>&1 && apt upgrade -y > /dev/null 2>&1 && apt ins
 
 ARG HOSTNAME=safonevps
 RUN echo "$HOSTNAME" > /etc/hostname
-RUN echo "127.0.0.1 $HOSTNAME" >> /etc/hosts
+RUN echo "127.0.0.1 $HOSTNAME" > /tmp/hosts
 
 ENV LANG en_US.utf8
 ARG ngrokid=2TKpUVMArM3l4uRQndjgYEQAO5l_2TVpECASVAehd2yJurYwb
@@ -30,4 +30,4 @@ COPY . .
 
 EXPOSE 80 8888 8080 443 5130 5131 5132 5133 5134 5135 3306
 
-CMD ["bash","start.sh"]
+CMD ["bash", "start.sh"]
