@@ -20,22 +20,13 @@ RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config
 RUN echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
 RUN echo root:${Password}|chpasswd
 RUN service ssh start
+COPY info.sh /info.sh
 RUN chmod 755 /1.sh
+RUN chmod 755 /info.sh
 
 RUN pip3 install flask flask_restful
 RUN echo 'PS1="root@safonevps:~# "' >> /root/.bashrc
-RUN echo 'echo ""' >> /root/.bashrc
-RUN echo 'echo "   _____         ______    ____  _   _ ______ "' >> /root/.bashrc
-RUN echo 'echo "  / ____|  /\   |  ____|  / __ \| \ | |  ____|"' >> /root/.bashrc
-RUN echo 'echo " | (___   /  \  | |__    | |  | |  \| | |__   "' >> /root/.bashrc
-RUN echo 'echo "  \___ \ / /\ \ |  __|   | |  | | . ` |  __|  "' >> /root/.bashrc
-RUN echo 'echo "  ____) / ____ \| |      | |__| | |\  | |____ "' >> /root/.bashrc
-RUN echo 'echo " |_____/_/    \_\_|       \____/|_| \_|______|"' >> /root/.bashrc
-RUN echo 'echo "                                              "' >> /root/.bashrc
-RUN echo 'echo ""' >> /root/.bashrc
-RUN echo 'echo "This server is hosted by Safone. If you have any questions or need help,"' >> /root/.bashrc
-RUN echo 'echo "please don\'t hesitate to contact us at support@safone.dev."' >> /root/.bashrc
-RUN echo 'echo ""' >> /root/.bashrc
+RUN echo '/info.sh' >> /root/.bashrc
 
 COPY . .
 
