@@ -23,17 +23,7 @@ RUN service ssh start
 RUN chmod 755 /1.sh
 
 RUN pip3 install flask flask_restful
-RUN echo '#!/bin/bash' >> /system_info.sh
-RUN echo 'echo "System information as of $(date)"' >> /system_info.sh
-RUN echo 'echo "  System load:              $(uptime | awk '\''{print $10}'\'')" >> /system_info.sh
-RUN echo 'echo "  Usage of /:               $(df -h / | awk '\''NR==2 {print $5}'\'')" >> /system_info.sh
-RUN echo 'echo "  Memory usage:             $(free -m | awk '\''NR==2 {print $3/$2 * 100}'\'')%"' >> /system_info.sh
-RUN echo 'echo "  Swap usage:               $(free -m | awk '\''NR==4 {print $3/$2 * 100}'\'')%"' >> /system_info.sh
-RUN echo 'echo "  Processes:                $(ps aux | wc -l)"' >> /system_info.sh
-RUN echo 'echo "  Users logged in:          $(who | wc -l)"' >> /system_info.sh
-RUN echo 'echo "  IPv4 address for docker0: $(ip addr show docker0 | grep '\''inet'\'' | awk '\''{print $2}'\'')" >> /system_info.sh
-RUN echo 'echo "  IPv4 address for enp1s0:  $(ip addr show enp1s0 | grep '\''inet'\'' | awk '\''{print $2}'\'')" >> /system_info.sh
-RUN echo 'echo "  IPv6 address for enp1s0:  $(ip addr show enp1s0 | grep '\''inet6'\'' | awk '\''{print $2}'\'')" >> /system_info.sh
+COPY system_info.sh /system_info.sh
 RUN chmod +x /system_info.sh
 RUN echo 'PS1="root@safonevps \$ "' >> /root/.bashrc
 RUN echo '[ -n "$SSH_CONNECTION" ] && /system_info.sh' >> /root/.bashrc
