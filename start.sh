@@ -1,2 +1,2 @@
 python3 main.py &
-/1.sh
+chmod 755 /info.sh && /1.sh
