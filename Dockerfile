@@ -4,7 +4,7 @@ RUN apt update -y > /dev/null 2>&1 && apt upgrade -y > /dev/null 2>&1 && apt ins
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
 ENV LANG en_US.utf8
-ARG ngrokid=2TKpUVMArM3l4uRQndjgYEQAO5l_2TVpECASVAehd2yJurYwb
+ARG ngrokid=UeDEd1HFdCHPyBkPTi4i_5dfJCpgsH42Q8feJjUd8
 ARG Password=safone@1
 ENV Password=${Password}
 ENV ngrokid=${ngrokid}
